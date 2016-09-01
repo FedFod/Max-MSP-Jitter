@@ -1,6 +1,6 @@
 
 // Vector class
-function Vector(x, y, z) { 
+function Vector(x, y, z) {
 
 	this.x = x || 0.0;
 	this.y = y || 0.0;
@@ -85,19 +85,21 @@ Vector.prototype = {
 		this.z = this.z/m;
 	},
 
+	distance: function(v) {
+		return Math.sqrt((v.x-this.x)*(v.x-this.x) + (v.y-this.y)*(v.y-this.y) + (v.z-this.z)*(v.z-this.z));
+	},
+
 	get: function() {
 		return new Vector(this.x, this.y, this.z);
 	},
 
-	set :function(x, y, z){
+	set : function(x, y, z){
       		if (x instanceof Vector) { return this.set(x.x, x.y, x.z); }
-            	if (x instanceof Array) { return this.set(x[0], x[1], x[2]); }
+          if (x instanceof Array) { return this.set(x[0], x[1], x[2]); }
     		this.x = x || 0;
      		this.y = y || 0;
      		this.z = z || 0;
-            }
+  }
 };
 
-// - - - 
-
-
+// - - -
