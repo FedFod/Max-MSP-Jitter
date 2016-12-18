@@ -40,14 +40,41 @@
 		"subpatcher_template" : "new_yellow",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 250.333313, 481.5, 50.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 250.333313, 508.5, 63.0, 22.0 ],
+					"style" : "",
+					"text" : "dim $1 $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-70",
+					"linecount" : 3,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 145.5, 483.0, 100.0, 22.0 ],
+					"patching_rect" : [ 145.5, 481.5, 89.599998, 49.0 ],
 					"style" : "",
-					"text" : "jit.matrix"
+					"text" : "jit.matrix 3 float32 100 100 @interp 1"
 				}
 
 			}
@@ -85,7 +112,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 160.000015, 511.5, 104.0, 49.0 ],
+					"patching_rect" : [ 145.5, 539.0, 104.0, 49.0 ],
 					"style" : "",
 					"text" : "jit.slide @slide_down 50 @slide_up 50"
 				}
@@ -303,7 +330,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 51.666672, 743.833313, 48.0, 20.0 ],
-					"presentation_rect" : [ 174.0, 565.333313, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "0 - 2"
 				}
@@ -320,7 +346,6 @@
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 18.333332, 709.833374, 18.0, 50.0 ],
-					"presentation_rect" : [ 140.666656, 531.333374, 0.0, 0.0 ],
 					"size" : 3,
 					"style" : "",
 					"value" : 0
@@ -335,7 +360,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 18.333332, 769.166626, 102.666672, 22.0 ],
-					"presentation_rect" : [ 140.666656, 599.333313, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "poly_mode $1 $1"
 				}
@@ -349,7 +373,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 65.333336, 556.666687, 50.0, 22.0 ],
-					"presentation_rect" : [ 68.0, 414.666687, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "reset"
 				}
@@ -364,7 +387,6 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 65.333336, 595.166687, 126.0, 35.0 ],
-					"presentation_rect" : [ 68.0, 444.5, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "jit.gl.handle myWorld @auto_rotate 1"
 				}
@@ -373,13 +395,14 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-23",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 420.666656, 561.5, 50.0, 22.0 ],
+					"patching_rect" : [ 420.666656, 561.5, 50.0, 35.0 ],
 					"style" : "",
-					"text" : "40 40"
+					"text" : "300 300"
 				}
 
 			}
@@ -467,7 +490,6 @@
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 282.666687, 349.333344, 24.0, 24.0 ],
-					"presentation_rect" : [ 285.333344, 349.333344, 0.0, 0.0 ],
 					"style" : ""
 				}
 
@@ -514,14 +536,14 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-41",
-					"linecount" : 4,
+					"linecount" : 3,
 					"maxclass" : "newobj",
 					"numinlets" : 9,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 23.333321, 636.666687, 221.0, 62.0 ],
+					"patching_rect" : [ 23.333321, 632.166687, 322.199982, 49.0 ],
 					"style" : "",
-					"text" : "jit.gl.mesh myWorld @auto_colors 1 @point_size 3 @scale 0.5 @lighting_enable 1 @smooth_shading 1"
+					"text" : "jit.gl.mesh myWorld @auto_colors 1 @point_size 3 @scale 0.5 @lighting_enable 1 @smooth_shading 1 @auto_normals 1"
 				}
 
 			}
@@ -718,7 +740,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 23.333321, 344.666656, 215.333328, 22.0 ],
+					"patching_rect" : [ 23.333321, 344.666656, 216.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -856,6 +878,15 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-26", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-63", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-3", 0 ]
 				}
 
 			}
@@ -1044,6 +1075,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-66", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1065,10 +1105,19 @@
 		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "new_yellow",
-				"default" : 				{
-					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+				"button" : 				{
 					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"patchlinecolor" : [ 0.862745, 0.741176, 0.137255, 0.9 ],
+					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ],
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+				}
+,
+				"toggle" : 				{
+					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
+					"elementcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ]
+				}
+,
+				"default" : 				{
+					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
 					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
 					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ],
 					"bgfillcolor" : 					{
@@ -1080,18 +1129,9 @@
 						"proportion" : 0.39,
 						"autogradient" : 0
 					}
-
-				}
 ,
-				"button" : 				{
 					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ]
-				}
-,
-				"toggle" : 				{
-					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"elementcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ]
+					"patchlinecolor" : [ 0.862745, 0.741176, 0.137255, 0.9 ]
 				}
 ,
 				"radiogroup" : 				{
@@ -1107,11 +1147,19 @@
 			}
 , 			{
 				"name" : "new_yellow-1",
+				"button" : 				{
+					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
+					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ],
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+				}
+,
+				"toggle" : 				{
+					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
+					"elementcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ]
+				}
+,
 				"default" : 				{
-					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"color" : [ 0.541176, 0.815686, 0.913725, 1.0 ],
-					"patchlinecolor" : [ 0.0, 0.0, 0.0, 0.9 ],
-					"textcolor" : [ 0.319298, 0.79242, 0.856174, 1.0 ],
 					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
 					"elementcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 					"bgfillcolor" : 					{
@@ -1123,18 +1171,10 @@
 						"proportion" : 0.39,
 						"autogradient" : 0
 					}
-
-				}
 ,
-				"button" : 				{
 					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ]
-				}
-,
-				"toggle" : 				{
-					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"elementcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ]
+					"textcolor" : [ 0.319298, 0.79242, 0.856174, 1.0 ],
+					"patchlinecolor" : [ 0.0, 0.0, 0.0, 0.9 ]
 				}
 ,
 				"radiogroup" : 				{

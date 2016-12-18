@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 45.0, 79.0, 672.0, 733.0 ],
+		"rect" : [ 45.0, 79.0, 857.0, 783.0 ],
 		"bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 		"editing_bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 		"bglocked" : 0,
@@ -95,8 +95,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 286.5, 427.5, 203.5, 158.5 ],
-					"presentation_rect" : [ 624.5, 200.5, 0.0, 0.0 ]
+					"patching_rect" : [ 286.5, 427.5, 203.5, 158.5 ]
 				}
 
 			}
@@ -138,30 +137,30 @@
 									"outputmode" : [ 1 ],
 									"out_name" : [ "u592002897" ],
 									"dim" : [ 1, 1 ],
-									"srcrect" : [ 0, 0, 1, 1 ],
-									"loopreport" : [ 0 ],
-									"automatic" : [ 0 ],
-									"adapt" : [ 1 ],
-									"time" : [ 0 ],
-									"moviefile" : [ "" ],
-									"framereport" : [ 0 ],
-									"usesrcrect" : [ 0 ],
 									"loopend" : [ 0 ],
-									"dstrect" : [ 0, 0, 1, 1 ],
-									"position" : [ 0.0 ],
-									"texture_name" : [ "u174002895" ],
-									"loopstart" : [ 0 ],
-									"vol" : [ 1.0 ],
-									"colormode" : [ "argb" ],
-									"unique" : [ 0 ],
 									"output_texture" : [ 0 ],
-									"rate" : [ 1.0 ],
-									"engine" : [ "avf" ],
-									"autostart" : [ 1 ],
-									"usedstrect" : [ 0 ],
 									"looppoints" : [ 0, 0 ],
 									"interp" : [ 0 ],
+									"automatic" : [ 0 ],
+									"framereport" : [ 0 ],
+									"loopstart" : [ 0 ],
+									"autostart" : [ 1 ],
+									"time" : [ 0 ],
+									"srcrect" : [ 0, 0, 1, 1 ],
+									"moviefile" : [ "" ],
+									"dstrect" : [ 0, 0, 1, 1 ],
+									"rate" : [ 1.0 ],
 									"time_secs" : [ 0.0 ],
+									"position" : [ 0.0 ],
+									"usesrcrect" : [ 0 ],
+									"colormode" : [ "argb" ],
+									"usedstrect" : [ 0 ],
+									"vol" : [ 1.0 ],
+									"adapt" : [ 1 ],
+									"loopreport" : [ 0 ],
+									"unique" : [ 0 ],
+									"texture_name" : [ "u174002895" ],
+									"engine" : [ "avf" ],
 									"drawto" : [ "" ]
 								}
 
@@ -540,8 +539,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 204.0, 164.5, 113.5, 35.0 ],
-					"presentation_rect" : [ 279.0, 176.5, 0.0, 0.0 ],
+					"patching_rect" : [ 204.0, 164.5, 115.0, 35.0 ],
 					"style" : "",
 					"text" : "jit.gen chicken_gen @type float32"
 				}
@@ -556,7 +554,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 171.5, 313.5, 59.5, 22.0 ],
+					"patching_rect" : [ 171.5, 313.5, 60.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -593,8 +591,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 46.0, 384.0, 203.5, 158.5 ],
-					"presentation_rect" : [ 387.5, 224.0, 0.0, 0.0 ]
+					"patching_rect" : [ 46.0, 384.0, 203.5, 158.5 ]
 				}
 
 			}
@@ -645,6 +642,19 @@
 						"subpatcher_template" : "",
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-1",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 343.0, 199.0, 100.0, 22.0 ],
+									"style" : "",
+									"text" : "param mult 0.2"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-55",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -663,9 +673,9 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 263.899994, 186.400009, 35.0, 22.0 ],
+									"patching_rect" : [ 263.899994, 186.400009, 46.0, 22.0 ],
 									"style" : "",
-									"text" : "* 0.8"
+									"text" : "* mult"
 								}
 
 							}
@@ -677,7 +687,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 263.899994, 153.466705, 59.399998, 22.0 ],
-									"presentation_rect" : [ 239.800003, 175.866699, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "vec 0 0"
 								}
@@ -754,7 +763,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 51.400002, 348.133331, 37.0, 22.0 ],
+									"patching_rect" : [ 53.599998, 358.133331, 37.0, 22.0 ],
 									"style" : "",
 									"text" : "out 1"
 								}
@@ -1206,10 +1215,19 @@
 			}
 , 			{
 				"name" : "new_yellow",
-				"default" : 				{
-					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+				"button" : 				{
 					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"patchlinecolor" : [ 0.862745, 0.741176, 0.137255, 0.9 ],
+					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ],
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+				}
+,
+				"toggle" : 				{
+					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
+					"elementcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ]
+				}
+,
+				"default" : 				{
+					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
 					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
 					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ],
 					"bgfillcolor" : 					{
@@ -1221,18 +1239,9 @@
 						"proportion" : 0.39,
 						"autogradient" : 0
 					}
-
-				}
 ,
-				"button" : 				{
 					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ]
-				}
-,
-				"toggle" : 				{
-					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"elementcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ]
+					"patchlinecolor" : [ 0.862745, 0.741176, 0.137255, 0.9 ]
 				}
 ,
 				"radiogroup" : 				{
@@ -1248,11 +1257,19 @@
 			}
 , 			{
 				"name" : "new_yellow-1",
+				"button" : 				{
+					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
+					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ],
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+				}
+,
+				"toggle" : 				{
+					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
+					"elementcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ]
+				}
+,
 				"default" : 				{
-					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"color" : [ 0.541176, 0.815686, 0.913725, 1.0 ],
-					"patchlinecolor" : [ 0.0, 0.0, 0.0, 0.9 ],
-					"textcolor" : [ 0.319298, 0.79242, 0.856174, 1.0 ],
 					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
 					"elementcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 					"bgfillcolor" : 					{
@@ -1264,18 +1281,10 @@
 						"proportion" : 0.39,
 						"autogradient" : 0
 					}
-
-				}
 ,
-				"button" : 				{
 					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"elementcolor" : [ 0.862745, 0.741176, 0.137255, 1.0 ]
-				}
-,
-				"toggle" : 				{
-					"color" : [ 0.960784, 0.827451, 0.156863, 1.0 ],
-					"elementcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ]
+					"textcolor" : [ 0.319298, 0.79242, 0.856174, 1.0 ],
+					"patchlinecolor" : [ 0.0, 0.0, 0.0, 0.9 ]
 				}
 ,
 				"radiogroup" : 				{
