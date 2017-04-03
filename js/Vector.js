@@ -9,10 +9,10 @@ function Vector(x, y, z) {
 
 Vector.prototype = {
 
-	add: function(vector) {
-		this.x += vector.x;
-		this.y += vector.y;
-		this.z += vector.z;
+	add: function(v) {
+		this.x += v.x;
+		this.y += v.y;
+		this.z += v.z;
 	},
 
 	addNew: function(v) {
@@ -78,7 +78,7 @@ Vector.prototype = {
 	},
 
 	normalize: function() {
-		var m = this.magnitude();
+		var m = this.length();
 
 		this.x = this.x/m;
 		this.y = this.y/m;
