@@ -216,7 +216,7 @@ function addParamV(param, bind, uniform) {
 		}
 		init();
 		parD.export_json(path+"paramsDict.json");
-		outlet(3, strUniF);
+		outlet(3, strUniV);
 	}
 }
 
