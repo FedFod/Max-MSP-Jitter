@@ -1,8 +1,8 @@
 autowatch = 1;
 outlets = 5;
 
-var programs = new Dict("shadersDict");
-var parD = new Dict("paramsDict.json");
+var programs = new Dict();
+var parD = new Dict();
 var strV = "";
 var strF = "";
 var strUniV = "";
@@ -11,6 +11,7 @@ var file = new File();
 var folder = new Folder();
 var path = "";
 var filename = "";
+var dictFilename = "";
 
 var name, desc;
 
@@ -25,6 +26,9 @@ function reset(path_, filename_) {
 	strUniF = "";
 	path = path_;
 	filename = filename_;
+	dictFilename = filename_.replace('.jxs', '');
+	parD.name = "paramsDict_"+dictFilename+".json";
+	programs.name = "shadersDict_"+dictFilename+".json";
 	params = [];
 	bindsV = [];
 	uniformsV = [];
@@ -48,7 +52,7 @@ function reset(path_, filename_) {
 		parD.replace("bindsF",  ["%"]);
 		parD.replace("uniformsV",  ["%"]);
 		parD.replace("uniformsF",  ["%"]);
-		parD.export_json(path+"paramsDict.json");
+		parD.export_json(path+"paramsDict_"+dictFilename+".json");
 		params[0] = "%";
 		bindsV[0] = "%";
 		uniformsV[0] = "%";
@@ -57,8 +61,8 @@ function reset(path_, filename_) {
 		outlet(3, strUniV);
 		outlet(4, strUniF);
 	} else {
-		parD.import_json(path+"paramsDict.json");
-		programs.import_json(path +"shadersDict.json");
+		parD.import_json(path+"paramsDict_"+dictFilename+".json");
+		programs.import_json(path+"shadersDict_"+dictFilename+".json");
 		for(i=0; i<parD.getsize("params"); i++) {
 			params[i] = parD.get("params")[i];
 		}
@@ -94,18 +98,24 @@ function setVar(name_, desc_) {
 }
 
 function initVertexProgram(program) {
-	strV = "\n\n";
+	strV = "\n";
+	strV += "const float PI = 3.14159; \n const float TWO_PI = PI * 2.0;\n\n"
 	strV += "varying vec2 texcoord0;\n";
 	strV += "varying vec2 texcoord1;\n";
+	strV += "varying vec3 lightPositions[2];\n varying vec3 lightColors[2];\n"
   strV += "\n\n";
 	strV += "void main() {\n";
 	strV += "texcoord0 = vec2(gl_TextureMatrix[0] * gl_MultiTexCoord0);\n";
 	strV += "texcoord1 = vec2(gl_TextureMatrix[1] * gl_MultiTexCoord1);\n";
+	strV += "lightPositions[0] = gl_LightSource[0].position.xyz;\n";
+	strV += "lightPositions[1] = gl_LightSource[1].position.xyz;\n";
+	strV += "lightColors[0] = gl_LightSource[0].diffuse.rgb;\n";
+	strV += "lightColors[1] = gl_LightSource[1].diffuse.rgb;\n";
 	strV += "\n\n";
 	strV += "gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;\n";
 	strV += "}\n\n";
 	programs.set("vertex", strV);
-	programs.export_json(path+"shadersDict.json")
+	programs.export_json(path+"shadersDict_"+dictFilename+".json")
 	outlet(0, strV);
 }
 
@@ -119,7 +129,7 @@ function initFragmentProgram(program) {
 	strF += "gl_FragColor = vec4(1,0.4,0.6,1.0);\n";
 	strF += "}\n\n";
 	programs.set("fragment", strF);
-	programs.export_json(path+"shadersDict.json")
+	programs.export_json(path+"shadersDict_"+dictFilename+".json")
 	outlet(1, strF);
 }
 
@@ -184,7 +194,7 @@ function init() {
 
 function setVertex(program) {
 	programs.set("vertex", program);
-	programs.export_json(path+"shadersDict.json");
+	programs.export_json(path+"shadersDict_"+dictFilename+".json");
 	strV = program;
 	init();
 	outlet(0, program);
@@ -192,7 +202,7 @@ function setVertex(program) {
 
 function setFragment(program) {
 	programs.set("fragment", program);
-	programs.export_json(path+"shadersDict.json")
+	programs.export_json(path+"shadersDict_"+dictFilename+".json")
 	strF = program;
 	init();
 	outlet(1, program);
@@ -215,7 +225,7 @@ function addParamV(param, bind, uniform) {
 			}
 		}
 		init();
-		parD.export_json(path+"paramsDict.json");
+		parD.export_json(path+"paramsDict_"+dictFilename+".json");
 		outlet(3, strUniV);
 	}
 }
@@ -237,7 +247,7 @@ function addParamF(param, bind, uniform) {
 				}
 		}
 		init();
-		parD.export_json(path+"paramsDict.json");
+		parD.export_json(path+"paramsDict_"+dictFilename+".json");
 		outlet(4, strUniF);
 	}
 }
@@ -260,7 +270,7 @@ function deleteParamF(param_) {
 				strUniF += uniformsF[i];
 		}
 	}
-	parD.export_json(path+"paramsDict.json");
+	parD.export_json(path+"paramsDict_"+dictFilename+".json");
 	init();
 	outlet(4, strUniF);
 }
@@ -283,7 +293,7 @@ function deleteParamV(param_) {
 				strUniV += uniformsV[i];
 		}
 	}
-	parD.export_json(path+"paramsDict.json");
+	parD.export_json(path+"paramsDict_"+dictFilename+".json");
 	init();
 	outlet(3, strUniV);
 }
