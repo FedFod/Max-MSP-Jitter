@@ -85,6 +85,10 @@ Vector.prototype = {
 		this.z = this.z/m;
 	},
 
+	isEqual: function(v) {
+		return (this.x == v.x && this.y == v.y && this.z == v.z);
+	},
+
 	distance: function(v) {
 		return Math.sqrt((v.x-this.x)*(v.x-this.x) + (v.y-this.y)*(v.y-this.y) + (v.z-this.z)*(v.z-this.z));
 	},
@@ -99,7 +103,22 @@ Vector.prototype = {
     		this.x = x || 0;
      		this.y = y || 0;
      		this.z = z || 0;
-  }
+  },
+
+	crossNew: function(v) {
+		return new Vector(this.y*v.z - this.z*v.y, this.z*v.x - this.x*v.z, this.x*v.y - this.y*v.x);
+		//cross(A, B) = [ a2 * b3 - a3 * b2, a3 * b1 - a1 * b3, a1 * b2 - a2 * b1 ]
+	},
+
+	clamp: function(min, max) {
+		this.x = Math.min(Math.max(this.x, min), max);
+		this.y = Math.min(Math.max(this.y, min), max);
+		this.z = Math.min(Math.max(this.z, min), max);
+	},
+
+	toArray: function() {
+		return [this.x, this.y, this.z];
+	}
 };
 
 // - - -
