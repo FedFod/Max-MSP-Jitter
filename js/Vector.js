@@ -10,9 +10,15 @@ function Vector(x, y, z) {
 Vector.prototype = {
 
 	add: function(v) {
-		this.x += v.x;
-		this.y += v.y;
-		this.z += v.z;
+		if (v instanceof Vector) {
+			this.x += v.x;
+			this.y += v.y;
+			this.z += v.z;
+		} else {
+			this.x += v;
+			this.y += v;
+			this.z += v;
+		}
 	},
 
 	addNew: function(v) {
@@ -93,13 +99,17 @@ Vector.prototype = {
 		return Math.sqrt((v.x-this.x)*(v.x-this.x) + (v.y-this.y)*(v.y-this.y) + (v.z-this.z)*(v.z-this.z));
 	},
 
+	distanceUnsqrd: function(v) {
+		return (v.x-this.x)*(v.x-this.x) + (v.y-this.y)*(v.y-this.y) + (v.z-this.z)*(v.z-this.z);
+	},
+
 	get: function() {
 		return new Vector(this.x, this.y, this.z);
 	},
 
 	set : function(x, y, z){
-      		if (x instanceof Vector) { return this.set(x.x, x.y, x.z); }
-          if (x instanceof Array) { return this.set(x[0], x[1], x[2]); }
+      		if (x instanceof Vector) { this.set(x.x, x.y, x.z); }
+          if (x instanceof Array) {  this.set(x[0], x[1], x[2]); }
     		this.x = x || 0;
      		this.y = y || 0;
      		this.z = z || 0;
@@ -108,6 +118,10 @@ Vector.prototype = {
 	crossNew: function(v) {
 		return new Vector(this.y*v.z - this.z*v.y, this.z*v.x - this.x*v.z, this.x*v.y - this.y*v.x);
 		//cross(A, B) = [ a2 * b3 - a3 * b2, a3 * b1 - a1 * b3, a1 * b2 - a2 * b1 ]
+	},
+
+	dot: function(v) {
+		return this.x * v.x + this.y * v.y + this.z * v.z;
 	},
 
 	clamp: function(min, max) {
